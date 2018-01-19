@@ -1,15 +1,4 @@
 
 #!/bin/bash
 
-set -e
-
-CATALINA_HOME=/usr/share/tomcat
-
-# Check whether there exists a valid instance
-# of Tomcat8 installed at the specified directory
-[[ -d $CATALINA_HOME ]] && { service tomcat status; } && {
-    echo "Tomcat8 is already installed at $CATALINA_HOME. Skip reinstalling it."
-    exit 0
-}
-
 sudo yum install tomcat -y
