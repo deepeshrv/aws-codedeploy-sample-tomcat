@@ -29,7 +29,7 @@ mkdir -p $CATALINA_HOME
 
 # Download the latest TOMCAT8 version
 cd /tmp
-{ which wget; } || { yum install wget; }
+{ which wget; } || { yum install wget -y; }
 wget $TOMCAT8_CORE_DOWNLOAD_URL
 if [[ -d /tmp/$TOMCAT8_CORE_UNPACKED_DIRNAME ]]; then
     rm -rf /tmp/$TOMCAT8_CORE_UNPACKED_DIRNAME
@@ -40,7 +40,7 @@ tar xzf $TOMCAT8_CORE_TAR_FILENAME
 cp -r /tmp/$TOMCAT8_CORE_UNPACKED_DIRNAME/* $CATALINA_HOME
 
 # Install Java if not yet installed
-{ which java; } || { yum install java; }
+{ which java; } || { yum install java -y; }
 
 # Create the service init.d script
 cat > /etc/init.d/TOMCAT8 <<'EOF'
